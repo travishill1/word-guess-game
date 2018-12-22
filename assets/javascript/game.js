@@ -22,8 +22,8 @@
 
     document.onkeyup = function(event) {
       var userInput = document.createTextNode(event.key);
-      $("#guesses").append(spacing)
-      $("#guesses").append(userInput)
+      // $("#guesses").append(spacing)
+      // $("#guesses").append(userInput)
 
       var userInput = String.fromCharCode(event.keyCode || event.code).toLowerCase();
       var found = false;

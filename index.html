@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+        <body background="http://huntingforthompson.com/wp-content/uploads/2017/03/Trump-Jail.jpg">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -17,12 +19,20 @@
 <body>
     <div class="container baseText">
         <h1>Word Guess Game </h1>
-        <div><h2>Press any key to get started!</h2></div>
+        <div><h3>Press any key if you are a Stable Genius!</h3></div>
     </div>
-
+<!-- add 2 rows with col-6
+<div class="row">
+        <div class="col-6"> -->
     <div class="container baseText">
+        <div class="row">
+            <div class="col-6">
 
-        <div><h3>Number of Guesses Remaining: </h3>
+                    <div><h3>Wins: </h3>
+                        <div id="wins"> </div>
+                     </div>
+        <br>
+        <div><h4>Number of Guesses Remaining: </h4>
             <div id="remaining"> </div>
          </div>
 
@@ -33,15 +43,8 @@
             <br>
             
          </div>
-
-        <br>
-         <br>
-        <div><h3>Wins: </h3>
-            <div id="wins"> </div>
-         </div>
-
-    </div>
-        <div class = "container baseText"><h2>Current Word</h2> 
+    
+        <div class = "container baseText"><h3>Current Word</h3> 
         <br>
         <div id="guesses">
                 <div class="letter" id="firstLetter"></div>
@@ -50,6 +53,13 @@
                 <div class="letter" id="fourthLetter"></div>
               </div>
             </div>
+        </div>
+        
+        <div class="col-6">
+            <img id="stickpic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Hangman-5.svg/2000px-Hangman-5.svg.png">
+        </div>
+    </div>
+</div>
 </body>
 <script src="assets/javascript/game.js"></script>
 </html>

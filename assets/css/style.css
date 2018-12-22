@@ -1,10 +1,11 @@
 .baseText {
-    border: 50px;
+    border: 5px;
     border-color: black;
     background-color: red;
+    font-family: 'Ubuntu', sans-serif;
     color: black;
-    max-width: 33%;
-    margin: 10 auto;
+    text-align:center;
+    margin: 0 auto;
 }
 
 #incorrect-letters { 
@@ -36,3 +37,10 @@
     border:5px solid green;
     height:2.5em;
   }
+
+  #stickpic {
+    
+    width: 400px;
+    height: 500px;
+    margin-right: 5px;
+}
