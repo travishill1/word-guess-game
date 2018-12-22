@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Word Guess Game</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="container baseText">
+        <h1>Word Guess Game </h1>
+        <div><h2>Press any key to get started!</h2></div>
+    </div>
+
+    <div class="container baseText">
+
+        <div><h3>Number of Guesses Remaining: </h3>
+            <div id="remaining"> </div>
+         </div>
+
+         <br>
+
+        <div><h3>Letters Already Guessed: </h3> 
+            <div id="incorrect-letters"> </div> 
+            <br>
+            
+         </div>
+
+        <br>
+         <br>
+        <div><h3>Wins: </h3>
+            <div id="wins"> </div>
+         </div>
+
+    </div>
+        <div class = "container baseText"><h2>Current Word</h2> 
+        <br>
+        <div id="guesses">
+                <div class="letter" id="firstLetter"></div>
+                <div class="letter" id="secondLetter"></div>
+                <div class="letter" id="thirdLletter"></div>
+                <div class="letter" id="fourthLetter"></div>
+              </div>
+            </div>
+</body>
+<script src="assets/javascript/game.js"></script>
+</html>

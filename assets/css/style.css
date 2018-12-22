@@ -1,0 +1,38 @@
+.baseText {
+    border: 50px;
+    border-color: black;
+    background-color: red;
+    color: black;
+    max-width: 33%;
+    margin: 10 auto;
+}
+
+#incorrect-letters { 
+    border:2px solid black; 
+    background-color: darkgray; 
+    color: black;
+    height:1.5em; 
+    font-family:monospaced;
+    letter-spacing:.75em;
+    font-weight:bold;
+    line-height:1.5em;
+    font-size:1.5em;
+    padding:0 10px;
+  }
+  
+  .letter { 
+    float:left; 
+    border-bottom:2px solid black;
+    font-size:2em;
+    color:green;
+    width:2em;
+    height:1em;
+    margin-right:1em;
+    text-align:center;
+  }
+  
+  .winner {
+    background-color:yellow;
+    border:5px solid green;
+    height:2.5em;
+  }
