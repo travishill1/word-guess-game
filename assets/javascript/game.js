@@ -7,7 +7,7 @@
     var containers = document.querySelectorAll(".letter");
     var foundCount = 0;
 
-    var currentWord = ["impeach", "emolument", "collusion", "scandal","fraud"];
+    var currentWord = ["impeach", "emolument", "collusion", "scandal", "fraud"];
 
     var audioHorn = document.createElement("audio");
     audioHorn.setAttribute("src", "assets/horn.mp3");
