@@ -14,19 +14,21 @@
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
-
+<!-- ADD funny horn sounds from Super Deluxe vids when incorrect key guess -->
+<!-- When win, play silly trump quote or hell yeah brother -->
+<!-- Add fontAwesome icons (spinning silliness) -->
 </head>
 <body>
     <div class="container baseText">
         <h1>Word Guess Game </h1>
         <div><h3>Press any key if you are a Stable Genius!</h3></div>
     </div>
-<!-- add 2 rows with col-6
+<!-- added 2 rows with col-6
 <div class="row">
         <div class="col-6"> -->
     <div class="container baseText">
         <div class="row">
-            <div class="col-6">
+            <div class="col-8">
 
                     <div><h3>Wins: </h3>
                         <div id="wins"> </div>
@@ -45,17 +47,21 @@
          </div>
     
         <div class = "container baseText"><h3>Current Word</h3> 
-        <br>
+        
         <div id="guesses">
+             
                 <div class="letter" id="firstLetter"></div>
                 <div class="letter" id="secondLetter"></div>
                 <div class="letter" id="thirdLletter"></div>
                 <div class="letter" id="fourthLetter"></div>
+                <div class="letter" id="fifthLetter"></div>
+                <div class="letter" id="sixthLetter"></div>
+                
               </div>
             </div>
         </div>
         
-        <div class="col-6">
+        <div class="col-4">
             <img id="stickpic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Hangman-5.svg/2000px-Hangman-5.svg.png">
         </div>
     </div>
