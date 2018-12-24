@@ -11,7 +11,7 @@ const game = {
     stringBlanks : "",
     incorrectLetters : [ ],
     wins : 0,
-    remainingGuesses : 7,
+    remainingGuesses : 12,
     userInput: "",
 
     // for selecting words in our array at random
@@ -23,13 +23,11 @@ const game = {
 
     makeBlanks : function ( ) {
         game.stringBlanks = String("_").repeat(game.currentWord.length);
-
     },
 
     // turns any string into an array to be worked on later
     makeArray : function (string) {
         return string.split("");
-
     },
 
     // turns any array back into a string
@@ -40,9 +38,7 @@ const game = {
     getUserInput : function (event) {
         var userInput = event.key;
         game.userInput = userInput.toLowerCase();
-
     },
-
 
     // if current userInput string is found in the index of the currentWord string
     // then we convert the string of currentWord to an array (ourArray) so that we can make changes to it.
@@ -113,7 +109,6 @@ const game = {
         document.getElementById("remaining-guesses").innerHTML = game.remainingGuesses;
         document.getElementById("blank-word").innerHTML = game.stringBlanks.split("").join("&nbsp;&nbsp;");
         document.getElementById("incorrect-letters").innerHTML = game.incorrectLetters.join(" ");
-
     },
     
 
@@ -121,14 +116,9 @@ const game = {
         game.selectWord();
         game.makeBlanks();
         game.incorrectLetters = [ ];
-        game.remainingGuesses = 7;
+        game.remainingGuesses = 12;
         game.drawGameFrame();
         document.addEventListener("keypress", game.playerTurn);
     },
-
-
-
-
-
 }
 game.play()
