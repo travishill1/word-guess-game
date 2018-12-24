@@ -1,73 +1,134 @@
 
-// window.addEventListener("DOMContentLoaded", function(){
+const game = {
+    wordList : [
+        "impeach",
+        "collusion",
+        "fraud",
+        "emolument",
+        "scandal"
+        ],
+    currentWord : "",
+    stringBlanks : "",
+    incorrectLetters : [ ],
+    wins : 0,
+    remainingGuesses : 7,
+    userInput: "",
 
-    var incorrectLetters = document.getElementById("incorrect-letters");
-    var guesses = document.getElementById("guesses");
-  
-    var containers = document.querySelectorAll(".letter");
-    var foundCount = 0;
-
-    var currentWord = ["impeach", "emolument", "collusion", "scandal", "fraud"];
-
-    var audioHorn = document.createElement("audio");
-    audioHorn.setAttribute("src", "assets/horn.mp3");
-  
-    const spacing = " ";
-    
-    //NEEDS WORK
-    var remainGuess = (12 - incorrectLetters.length)
-
-    function remainingGuess(remainGuess) {
-      return (12 - incorrectLetters.length);
-      $("#remaining").append(remainGuess)
-    }
-// 
-
-    document.onkeyup = function(event) {
-      var userInput = document.createTextNode(event.key);
-      // $("#guesses").append(spacing)
-      // $("#guesses").append(userInput)
-
-      var userInput = String.fromCharCode(event.keyCode || event.code).toLowerCase();
-      var found = false;
-
-      for(var i = 0; i < currentWord.length; i++){
-
-        if(userInput === currentWord[i]){
-              
-          containers[i].textContent = userInput;
-          
-          found = true;
-          foundCount++;
-        }
-      }
-      
-      if(foundCount === containers.length){
-         guesses.classList.add("winner");
-      }
-      
-      // if not found then adds incorrect letter on display
-      
-      if(!found) { incorrectLetters.innerHTML = incorrectLetters.innerHTML + userInput; }
-      // function() {
-      //   audioHorn.play();
-      };
-  
     // for selecting words in our array at random
-    function randomSelector(){return Math.floor(Math.random() * currentWord.length) + 1; 
-    }
+    selectWord : function ( ) {
+        const randomNumber = Math.floor(Math.random() * game.wordList.length); 
+        game.currentWord = game.wordList[randomNumber];
+        console.log(game.currentWord);
+    },
 
-    console.log(currentWord[randomSelector()])
-    console.log(currentWord.length)
-    currentWordLength = currentWord[randomSelector()].length
+    makeBlanks : function ( ) {
+        game.stringBlanks = String("_").repeat(game.currentWord.length);
 
-    for(var j = 0; j < currentWord.length; j++){
-     if(j == randomSelector){
-      // = currentWord[j]
-      let currentWord2 = currentWord[j];
-      $("#guesses").append(currentWord2)
-    // change #wins to preferred div
-    // want another for loop within this for loop to output the spaces for each word.
-     }
-  }
-// });
+    },
+
+    // turns any string into an array to be worked on later
+    makeArray : function (string) {
+        return string.split("");
+
+    },
+
+    // turns any array back into a string
+    makeString : function (array) {
+        return array.join("");
+    },
+
+    getUserInput : function (event) {
+        var userInput = event.key;
+        game.userInput = userInput.toLowerCase();
+
+    },
+
+
+    // if current userInput string is found in the index of the currentWord string
+    // then we convert the string of currentWord to an array (ourArray) so that we can make changes to it.
+    // then we turn the array (ourArray) back into the stringBlanks string and keep going.
+    correctLetter : function () {
+        if (game.currentWord.indexOf(game.userInput) > -1) {
+            const ourArray = game.makeArray(game.stringBlanks);
+            for(var i = 0; i < game.currentWord.length; i++) {
+                if (game.currentWord[i] == game.userInput) {
+                    ourArray[i] = game.userInput
+                };
+            }
+            game.stringBlanks = game.makeString(ourArray);
+            game.drawGameFrame();
+        }
+    },
+
+    incorrectLetter : function () {
+        if (game.currentWord.indexOf(game.userInput) == -1) {
+            if (game.incorrectLetters.indexOf(game.userInput) == -1) {
+                game.remainingGuesses -= 1;
+                game.incorrectLetters.push(game.userInput); 
+                game.drawGameFrame();
+            }
+        }
+    },
+
+    playerTurn : function (event) {
+        game.getUserInput(event);
+        game.correctLetter();
+        game.incorrectLetter();
+        setTimeout(game.continueGame, 150);
+        // check if key is correct or incorrect
+        // make game adjustments based off that
+        // check if winGame or loseGame
+        // else run continueGame
+    },
+
+    // if winGame or loseGame is found to be true (not false/undefined/null/etc), then go to endGame function.
+    continueGame : function () {
+        if (game.winGame() || game.loseGame()) {
+        game.endGame();
+        }
+    },
+
+    winGame : function () {
+        if (!game.stringBlanks.includes("_")) {
+            game.wins += 1;
+            alert("You win!");
+            return true
+        }
+    },
+
+    loseGame : function () {
+        if (game.incorrectLetters.length >= 7) {
+            alert("You lose!")
+            return true
+        }
+    },
+
+    endGame : function () {
+        document.removeEventListener("keypress", game.playerTurn);
+        game.play();
+    },
+
+    drawGameFrame : function () {
+        document.getElementById("wins-count").innerHTML = game.wins;
+        document.getElementById("remaining-guesses").innerHTML = game.remainingGuesses;
+        document.getElementById("blank-word").innerHTML = game.stringBlanks.split("").join("&nbsp;&nbsp;");
+        document.getElementById("incorrect-letters").innerHTML = game.incorrectLetters.join(" ");
+
+    },
+    
+
+    play: function ( ) {
+        game.selectWord();
+        game.makeBlanks();
+        game.incorrectLetters = [ ];
+        game.remainingGuesses = 7;
+        game.drawGameFrame();
+        document.addEventListener("keypress", game.playerTurn);
+    },
+
+
+
+
+
+}
+game.play()

@@ -1,11 +1,14 @@
-.baseText {
-    
-   
+.baseText {   
     background-color: red;
     font-family: 'Ubuntu', sans-serif;
     color: black;
     text-align:center;
     margin: 0 auto;
+}
+
+#blank-word {
+  font-size: 30px;
+  text-align: center;
 }
 
 #incorrect-letters { 
@@ -14,10 +17,10 @@
     color: black;
     height:1.5em; 
     font-family:monospaced;
-    letter-spacing:.75em;
+    letter-spacing: 5px;
     font-weight:bold;
     line-height:1.5em;
-    font-size:1.5em;
+    font-size:26px;
     padding:0 10px;
   }
   
