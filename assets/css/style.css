@@ -4,10 +4,15 @@
     color: black;
     text-align:center;
     margin: 0 auto;
+    padding: 5px;
+    border: 5px solid black;
+
 }
 
 #blank-word {
   font-size: 30px;
+  border: 0px;
+  margin-top: 50px;
   text-align: center;
 }
 
@@ -43,8 +48,9 @@
   }
 
   #stickpic {
-    
+    position: relative;
     width: 400px;
-    height: 500px;
-    margin-right: 40%;
+    height: 400px;
+    margin-right: 10px;
+    display: inline-block;
 }
