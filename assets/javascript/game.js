@@ -93,7 +93,7 @@ const game = {
     },
 
     loseGame : function () {
-        if (game.incorrectLetters.length >= 7) {
+        if (game.incorrectLetters.length >= 12) {
             alert("You lose!")
             return true
         }
